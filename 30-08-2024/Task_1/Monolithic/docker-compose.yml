@@ -1,0 +1,34 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    depends_on:
+      - db
+    environment:
+      - MONGO_URI=mongodb+srv://benny:ZLeywBCdV1aybO9s@cluster0.6vovitk.mongodb.net/Ecommerce
+
+  db:
+    image: mongo:5.0
+    networks:
+      - app-network
+    volumes:
+      - db_data:/data/db
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:

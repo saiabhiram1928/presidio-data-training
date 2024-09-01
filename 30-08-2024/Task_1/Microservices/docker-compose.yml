@@ -1,0 +1,35 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:3001"  
+    networks:
+      - frontend-network
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5001" 
+    networks:
+      - backend-network
+    environment:
+      - MONGO_URI=mongodb://db:27017/mydatabase
+
+  db:
+    image: mongo:5.0
+    networks:
+      - backend-network
+    volumes:
+      - db_data:/data/db
+
+networks:
+  frontend-network:
+    driver: bridge
+  backend-network:
+    driver: bridge
+
+volumes:
+  db_data:

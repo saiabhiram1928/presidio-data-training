@@ -1,0 +1,24 @@
+# Node modules directories in all microservices and monolithic subfolders
+**/node_modules/
+
+# .pnp files
+.pnp/
+.pnp.js
+
+# Coverage directory for code coverage reports
+coverage/
+
+# Production build directory
+/build/
+
+# Miscellaneous
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
