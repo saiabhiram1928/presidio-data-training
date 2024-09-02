@@ -1,0 +1,11 @@
+gitlab ---- https://gitlab.com/pratice2310536/Task-2.git
+
+github ----https://github.com/saiabhiram1928/presidio-data-training.git
+
+
+
+github to gitlab 
+
+git clone --mirror https://github.com/saiabhiram1928/presidio-data-training.git
+
+git push --mirror
